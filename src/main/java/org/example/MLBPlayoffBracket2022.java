@@ -43,7 +43,7 @@ public class MLBPlayoffBracket2022 {
         try {
             return Integer.parseInt(str);
         } catch (NumberFormatException e) {
-            return 0; // 返回0或其他默認值
+            return 0;
         }
     }
 
@@ -54,27 +54,24 @@ public class MLBPlayoffBracket2022 {
         }
 
         System.out.println("(AMERICAN LEAGUE)");
-        printBracketPart(teamMap, new String[]{"SEA", "HOU", "CLE", "TB", "NYY"}, new String[]{"HOU", "HOU", "CLE", "NYY", "HOU"});
+        printBracketPart(teamMap,
+                new String[]{"SEA", "HOU", "CLE", "TB", "NYY"},
+                new String[]{"HOU", "HOU", "CLE", "NYY", "HOU", "HOU"});
         System.out.println("                               ---- HOU");
-        printBracketPart(teamMap, new String[]{"SD", "STL", "PHI", "NYM", "LAD"}, new String[]{"SD", "PHI", "PHI", "LAD", "PHI"});
+        printBracketPart(teamMap,
+                new String[]{"SD", "LAD", "PHI", "ATL", "STL"},
+                new String[]{"SD", "PHI", "PHI", "PHI", "PHI", "PHI"});
         System.out.println("(NATIONAL LEAGUE)");
     }
 
     private static void printBracketPart(Map<String, Team> teamMap, String[] teamOrder, String[] winners) {
-        for (int i = 0; i < teamOrder.length; i++) {
-            Team team = teamMap.get(teamOrder[i]);
-            if (team == null) {
-                System.out.printf("%s N/A -----\n", teamOrder[i]);
-            } else {
-                System.out.printf("%s %d -----\n", team.abbr, team.wins);
-            }
-            if (i < winners.length) {
-                System.out.printf("%s -----\n", winners[i]);
-            }
-            if (i == 1) {
-                System.out.print("        ");
-            }
-        }
+        System.out.printf("%-3s %3d -----\n", teamOrder[0], teamMap.get(teamOrder[0]).wins);
+        System.out.printf("%-3s %3d ----- %-3s -----\n", teamOrder[1], teamMap.get(teamOrder[1]).wins, winners[0]);
+        System.out.printf("        %-3s %3d ----- %-3s\n", teamOrder[2], teamMap.get(teamOrder[2]).wins, winners[1]);
+        System.out.printf("%-3s %3d -----\n", teamOrder[2], teamMap.get(teamOrder[2]).wins);
+        System.out.printf("%-3s %3d ----- %-3s -----\n", teamOrder[3], teamMap.get(teamOrder[3]).wins, winners[2]);
+        System.out.printf("        %-3s %3d ----- %-3s ----- %-3s\n", teamOrder[4], teamMap.get(teamOrder[4]).wins, winners[3], winners[4]);
+        System.out.printf("                               ---- %-3s\n", winners[5]);
     }
 
     private static class Team {
@@ -89,5 +86,3 @@ public class MLBPlayoffBracket2022 {
         }
     }
 }
-
-
