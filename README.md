@@ -72,9 +72,9 @@
 
 
 
-# MLBStandingsCrawler 程式解析
+ 
 
-## 概述
+##  MLBStandingsCrawler 程式解析 | 概述
 
 這個 Java 程式用於爬取 MLB（美國職業棒球大聯盟）2022 年常規賽的球隊戰績數據，並以簡潔的格式輸出。
 
