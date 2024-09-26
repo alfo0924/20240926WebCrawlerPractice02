@@ -67,3 +67,91 @@
 4. **錯誤處理**:
    - `MLBPlayoffs2022Crawler.java` 包含網絡錯誤處理
    - `MLBPlayoffs2022.java` 不需要錯誤處理
+
+
+
+
+
+# MLBStandingsCrawler 程式解析
+
+## 概述
+
+這個 Java 程式用於爬取 MLB（美國職業棒球大聯盟）2022 年常規賽的球隊戰績數據，並以簡潔的格式輸出。
+
+## 主要組件
+
+### 1. 主方法 (main)
+
+```java
+public static void main(String[] args) {
+    // ... 程式的入口點
+}
+```
+
+- 定義了要爬取的 URL
+- 調用 `getDocument` 方法獲取網頁內容
+- 調用 `crawlMLBStandings` 方法解析數據
+- 調用 `printTeamRecords` 方法輸出結果
+
+### 2. 獲取網頁文檔 (getDocument)
+
+```java
+private static Document getDocument(String url) throws IOException {
+    // ... 使用 Jsoup 連接並獲取網頁內容
+}
+```
+
+- 使用 Jsoup 庫連接指定的 URL
+- 設置 User-Agent 和超時時間
+- 返回解析後的 Document 對象
+
+### 3. 解析 MLB 戰績 (crawlMLBStandings)
+
+```java
+private static List<TeamRecord> crawlMLBStandings(Document doc) {
+    // ... 解析 HTML 並提取球隊數據
+}
+```
+
+- 選擇表格中的所有行
+- 對每行提取球隊名稱、縮寫、勝場和敗場數
+- 創建 `TeamRecord` 對象並添加到列表中
+
+### 4. 安全解析整數 (parseIntSafely)
+
+```java
+private static int parseIntSafely(String str) {
+    // ... 安全地將字符串轉換為整數
+}
+```
+
+- 嘗試將字符串解析為整數
+- 如果解析失敗，返回 0
+
+### 5. 輸出球隊記錄 (printTeamRecords)
+
+```java
+private static void printTeamRecords(List<TeamRecord> teamRecords) {
+    // ... 格式化輸出球隊戰績
+}
+```
+
+- 以固定格式輸出每個球隊的名稱、縮寫、勝場和敗場數
+
+### 6. 球隊記錄類 (TeamRecord)
+
+```java
+private static class TeamRecord {
+    // ... 存儲單個球隊的數據
+}
+```
+
+- 內部類，用於存儲每個球隊的相關信息
+
+## 主要特點
+
+1. **錯誤處理**：使用 try-catch 處理可能的 IOException。
+2. **數據解析**：使用 Jsoup 庫解析 HTML 內容。
+3. **安全解析**：通過 `parseIntSafely` 方法處理非數字輸入。
+4. **格式化輸出**：使用 `printf` 方法格式化輸出結果。
+
