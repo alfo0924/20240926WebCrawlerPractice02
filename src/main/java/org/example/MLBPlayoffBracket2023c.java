@@ -28,7 +28,7 @@ public class MLBPlayoffBracket2023c {
                         // Validate and print 2022 bracket
                         validateTeamsAndWinners(alTeams2022, alWinners2022, teamNames, seeds2022);
                         validateTeamsAndWinners(nlTeams2022, nlWinners2022, teamNames, seeds2022);
-                        System.out.println("2022 MLB Playoff Bracket:");
+                        System.out.println("\n\n2022 MLB Playoff Bracket:\n\n");
                         printBracket("AMERICAN LEAGUE", alTeams2022, alWinners2022, teamNames, seeds2022);
                         System.out.println("                               ---- HOU " + teamNames.getOrDefault("HOU", "Unknown Team"));
                         printBracket("NATIONAL LEAGUE", nlTeams2022, nlWinners2022, teamNames, seeds2022);
@@ -37,7 +37,7 @@ public class MLBPlayoffBracket2023c {
                         // Validate and print 2023 bracket
                         validateTeamsAndWinners(alTeams2023, alWinners2023, teamNames, seeds2023);
                         validateTeamsAndWinners(nlTeams2023, nlWinners2023, teamNames, seeds2023);
-                        System.out.println("2023 MLB Playoff Bracket:");
+                        System.out.println("\n\n2023 MLB Playoff Bracket:\n\n");
                         printBracket("AMERICAN LEAGUE", alTeams2023, alWinners2023, teamNames, seeds2023);
                         System.out.println("                               ---- TEX " + teamNames.getOrDefault("TEX", "Unknown Team"));
                         printBracket("NATIONAL LEAGUE", nlTeams2023, nlWinners2023, teamNames, seeds2023);
