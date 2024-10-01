@@ -16,19 +16,22 @@ public class MLBPlayoffBracket2023c {
                         Map<String, Integer> seeds2019 = initializeSeeds2019();
 
                         // 2019 Playoff Data
-                        String[] alTeams2019 = {"HOU", "NYY", "MIN", "OAK", "TB", "BOS"};
-                        String[] alWinners2019 = {"TB", "MIN", "HOU", "NYY", "HOU", "HOU"};
-                        String[] nlTeams2019 = {"LAD", "ATL", "STL", "WSH", "MIL", "NYM"};
-                        String[] nlWinners2019 = {"WSH", "STL", "WSH", "LAD", "WSH", "WSH"};
+                        String[] alTeams2019 = {"HOU", "NYY", "MIN", "OAK", "TB"};
+                        String[] alWinners2019 = {"TB", "NYY", "HOU", "NYY", "HOU"};
+                        String[] nlTeams2019 = {"LAD", "ATL", "STL", "WSH", "MIL"};
+                        String[] nlWinners2019 = {"WSH", "STL", "WSH", "STL", "WSH"};
 
                         // Validate and print 2019 bracket
                         validateTeamsAndWinners(alTeams2019, alWinners2019, teamNames, seeds2019);
                         validateTeamsAndWinners(nlTeams2019, nlWinners2019, teamNames, seeds2019);
+
                         System.out.println("\n\n2019 MLB Playoff Bracket:\n\n");
                         printBracket("AMERICAN LEAGUE", alTeams2019, alWinners2019, teamNames, seeds2019);
-                        System.out.println("                               ---- HOU " + teamNames.getOrDefault("HOU", "Unknown Team"));
+                        System.out.println(" ---- WSH " + teamNames.getOrDefault("WSH", "Unknown Team"));
                         printBracket("NATIONAL LEAGUE", nlTeams2019, nlWinners2019, teamNames, seeds2019);
                         System.out.println("\n");
+
+
 
                         // 2022 Playoff Data
                         String[] alTeams2022 = {"HOU", "NYY", "CLE", "SEA", "TB", "TOR"};
@@ -101,13 +104,11 @@ public class MLBPlayoffBracket2023c {
                     seeds.put("MIN", 3);
                     seeds.put("OAK", 4);
                     seeds.put("TB", 5);
-                    seeds.put("BOS", 6);
                     seeds.put("LAD", 1);
                     seeds.put("ATL", 2);
                     seeds.put("STL", 3);
                     seeds.put("WSH", 4);
                     seeds.put("MIL", 5);
-                    seeds.put("NYM", 6);
                     return seeds;
                 }
 
