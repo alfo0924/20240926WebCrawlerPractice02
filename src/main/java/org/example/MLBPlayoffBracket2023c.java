@@ -72,17 +72,16 @@ public class MLBPlayoffBracket2023c {
                         System.out.println("\n");
 
                         // 2018 Playoff Data
-                        String[] alTeams2018 = {"BOS", "HOU", "CLE", "NYY", "OAK", "LAA"};
-                        String[] alWinners2018 = {"BOS", "HOU", "BOS", "BOS", "BOS", "BOS"};
-                        String[] nlTeams2018 = {"MIL", "LAD", "ATL", "CHC", "COL", "WSH"};
-                        String[] nlWinners2018 = {"MIL", "LAD", "LAD", "LAD", "LAD", "BOS"};
-
+                        String[] alTeams2018 = {"BOS", "HOU", "CLE", "NYY", "OAK"};
+                        String[] alWinners2018 = {"NYY", "HOU", "BOS", "BOS", "BOS"};
+                        String[] nlTeams2018 = {"MIL", "LAD", "ATL", "CHC", "COL"};
+                        String[] nlWinners2018 = {"COL", "LAD", "LAD", "MIL", "LAD"};
                         // Validate and print 2018 bracket
                         validateTeamsAndWinners(alTeams2018, alWinners2018, teamNames, seeds2018);
                         validateTeamsAndWinners(nlTeams2018, nlWinners2018, teamNames, seeds2018);
                         System.out.println("\n\n2018 MLB Playoff Bracket:\n\n");
                         printBracket("AMERICAN LEAGUE", alTeams2018, alWinners2018, teamNames, seeds2018);
-                        System.out.println("                               ---- BOS " + teamNames.getOrDefault("BOS", "Unknown Team"));
+                        System.out.println(" ---- BOS " + teamNames.getOrDefault("BOS", "Unknown Team"));
                         printBracket("NATIONAL LEAGUE", nlTeams2018, nlWinners2018, teamNames, seeds2018);
                         System.out.println("\n");
 
@@ -227,13 +226,11 @@ public class MLBPlayoffBracket2023c {
                     seeds.put("CLE", 3);
                     seeds.put("NYY", 4);
                     seeds.put("OAK", 5);
-                    seeds.put("LAA", 6);
                     seeds.put("MIL", 1);
                     seeds.put("LAD", 2);
                     seeds.put("ATL", 3);
                     seeds.put("CHC", 4);
                     seeds.put("COL", 5);
-                    seeds.put("WSH", 6);
                     return seeds;
                 }
                 private static Map<String, Integer> initializeSeeds2019() {
