@@ -155,3 +155,94 @@ private static class TeamRecord {
 3. **安全解析**：通過 `parseIntSafely` 方法處理非數字輸入。
 4. **格式化輸出**：使用 `printf` 方法格式化輸出結果。
 
+
+
+
+
+
+
+
+
+
+##  MLBPlayoffBracket2022 程式解析 | 概述
+
+這個 Java 程式用於爬取 MLB（美國職業棒球大聯盟）2022 年常規賽的球隊戰績數據，並生成季後賽對陣圖。
+
+## 主要組件
+
+### 1. 主方法 (main)
+
+```java
+public static void main(String[] args) {
+    // ... 程式的入口點
+}
+```
+
+- 定義了要爬取的 URL
+- 調用 `crawlMLBStandings` 方法獲取球隊數據
+- 調用 `printPlayoffBracket` 方法生成對陣圖
+
+### 2. 爬取 MLB 戰績 (crawlMLBStandings)
+
+```java
+private static List<Team> crawlMLBStandings(String url) throws IOException {
+    // ... 爬取網頁數據並解析
+}
+```
+
+- 使用 Jsoup 庫連接並解析 MLB 官網
+- 提取每個球隊的名稱、縮寫和勝場數
+- 返回 `Team` 對象的列表
+
+### 3. 安全解析整數 (parseIntSafely)
+
+```java
+private static int parseIntSafely(String str) {
+    // ... 安全地將字符串轉換為整數
+}
+```
+
+- 嘗試將字符串解析為整數
+- 如果解析失敗，返回 0
+
+### 4. 打印季後賽對陣圖 (printPlayoffBracket)
+
+```java
+private static void printPlayoffBracket(List<Team> teams) {
+    // ... 生成並打印季後賽對陣圖
+}
+```
+
+- 將球隊列表轉換為以縮寫為鍵的 Map
+- 分別打印美國聯盟和國家聯盟的對陣圖
+
+### 5. 打印對陣圖部分 (printBracketPart)
+
+```java
+private static void printBracketPart(Map<String, Team> teamMap, String[] teamOrder, String[] winners) {
+    // ... 打印對陣圖的一部分
+}
+```
+
+- 根據提供的球隊順序和獲勝者信息打印對陣圖
+- 處理球隊數據缺失的情況
+
+### 6. 球隊類 (Team)
+
+```java
+private static class Team {
+    // ... 存儲單個球隊的數據
+}
+```
+
+- 內部類，用於存儲球隊名稱、縮寫和勝場數
+
+## 主要特點
+
+1. **網頁爬取**：使用 Jsoup 庫爬取 MLB 官網數據。
+2. **數據解析**：從 HTML 中提取球隊信息。
+3. **錯誤處理**：包含安全的整數解析和空值處理。
+4. **靈活性**：可以輕易修改以適應不同賽季或不同的對陣格式。
+5. **格式化輸出**：生成易讀的季後賽對陣圖。
+
+
