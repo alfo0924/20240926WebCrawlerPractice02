@@ -13,17 +13,28 @@ public class MLBPlayoffBracket2023c {
                         Map<String, Integer> seeds2022 = initializeSeeds2022();
                         Map<String, Integer> seeds2023 = initializeSeeds2023();
 
+                        Map<String, Integer> seeds2019 = initializeSeeds2019();
+
+                        // 2019 Playoff Data
+                        String[] alTeams2019 = {"HOU", "NYY", "MIN", "OAK", "TB", "BOS"};
+                        String[] alWinners2019 = {"TB", "MIN", "HOU", "NYY", "HOU", "HOU"};
+                        String[] nlTeams2019 = {"LAD", "ATL", "STL", "WSH", "MIL", "NYM"};
+                        String[] nlWinners2019 = {"WSH", "STL", "WSH", "LAD", "WSH", "WSH"};
+
+                        // Validate and print 2019 bracket
+                        validateTeamsAndWinners(alTeams2019, alWinners2019, teamNames, seeds2019);
+                        validateTeamsAndWinners(nlTeams2019, nlWinners2019, teamNames, seeds2019);
+                        System.out.println("\n\n2019 MLB Playoff Bracket:\n\n");
+                        printBracket("AMERICAN LEAGUE", alTeams2019, alWinners2019, teamNames, seeds2019);
+                        System.out.println("                               ---- HOU " + teamNames.getOrDefault("HOU", "Unknown Team"));
+                        printBracket("NATIONAL LEAGUE", nlTeams2019, nlWinners2019, teamNames, seeds2019);
+                        System.out.println("\n");
+
                         // 2022 Playoff Data
                         String[] alTeams2022 = {"HOU", "NYY", "CLE", "SEA", "TB", "TOR"};
                         String[] alWinners2022 = {"SEA", "CLE", "HOU", "NYY", "HOU", "HOU"};
                         String[] nlTeams2022 = {"LAD", "ATL", "STL", "NYM", "SD", "PHI"};
                         String[] nlWinners2022 = {"SD", "PHI", "PHI", "SD", "PHI", "PHI"};
-
-                        // 2023 Playoff Data
-                        String[] alTeams2023 = {"BAL", "HOU", "MIN", "TB", "TEX", "TOR"};
-                        String[] alWinners2023 = {"TEX", "MIN", "TEX", "HOU", "TEX", "TEX"};
-                        String[] nlTeams2023 = {"ATL", "LAD", "MIL", "PHI", "AZ", "MIA"};
-                        String[] nlWinners2023 = {"AZ", "PHI", "PHI", "AZ", "AZ", "AZ"};
 
                         // Validate and print 2022 bracket
                         validateTeamsAndWinners(alTeams2022, alWinners2022, teamNames, seeds2022);
@@ -33,6 +44,14 @@ public class MLBPlayoffBracket2023c {
                         System.out.println("                               ---- HOU " + teamNames.getOrDefault("HOU", "Unknown Team"));
                         printBracket("NATIONAL LEAGUE", nlTeams2022, nlWinners2022, teamNames, seeds2022);
                         System.out.println("\n");
+
+                        // 2023 Playoff Data
+                        String[] alTeams2023 = {"BAL", "HOU", "MIN", "TB", "TEX", "TOR"};
+                        String[] alWinners2023 = {"TEX", "MIN", "TEX", "HOU", "TEX", "TEX"};
+                        String[] nlTeams2023 = {"ATL", "LAD", "MIL", "PHI", "AZ", "MIA"};
+                        String[] nlWinners2023 = {"AZ", "PHI", "PHI", "AZ", "AZ", "AZ"};
+
+
 
                         // Validate and print 2023 bracket
                         validateTeamsAndWinners(alTeams2023, alWinners2023, teamNames, seeds2023);
@@ -48,7 +67,9 @@ public class MLBPlayoffBracket2023c {
                     }
                 }
 
-                private static Map<String, String> initializeTeamNames() {
+
+
+    private static Map<String, String> initializeTeamNames() {
                     Map<String, String> teamNames = new HashMap<>();
                     teamNames.put("TEX", "德克薩斯遊騎兵");
                     teamNames.put("HOU", "休斯頓太空人");
@@ -68,7 +89,28 @@ public class MLBPlayoffBracket2023c {
                     teamNames.put("STL", "聖路易紅雀");
                     teamNames.put("NYM", "紐約大都會");
                     teamNames.put("SD", "聖地牙哥教士");
+                    teamNames.put("OAK", "奧克蘭運動家");
+                    teamNames.put("BOS", "波士頓紅襪");
+                    teamNames.put("WSH", "華盛頓國民");
                     return teamNames;
+                }
+
+
+                private static Map<String, Integer> initializeSeeds2019() {
+                    Map<String, Integer> seeds = new HashMap<>();
+                    seeds.put("HOU", 1);
+                    seeds.put("NYY", 2);
+                    seeds.put("MIN", 3);
+                    seeds.put("OAK", 4);
+                    seeds.put("TB", 5);
+                    seeds.put("BOS", 6);
+                    seeds.put("LAD", 1);
+                    seeds.put("ATL", 2);
+                    seeds.put("STL", 3);
+                    seeds.put("WSH", 4);
+                    seeds.put("MIL", 5);
+                    seeds.put("NYM", 6);
+                    return seeds;
                 }
 
                 private static Map<String, Integer> initializeSeeds2022() {
