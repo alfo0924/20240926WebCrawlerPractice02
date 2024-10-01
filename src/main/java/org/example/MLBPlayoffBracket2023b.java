@@ -41,7 +41,7 @@ public class MLBPlayoffBracket2023b {
 
         printBracket("NATIONAL LEAGUE",
                 new String[]{"ATL", "LAD", "MIL", "PHI", "AZ", "MIA"},
-                new String[]{"AZ", "PHI", "AZ", "PHI", "AZ", "AZ"},
+                new String[]{"AZ", "PHI", "PHI", "AZ", "AZ", "AZ"},
                 teamNames, seeds);
     }
 
