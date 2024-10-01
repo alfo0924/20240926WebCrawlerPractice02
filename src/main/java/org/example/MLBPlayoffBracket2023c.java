@@ -71,6 +71,20 @@ public class MLBPlayoffBracket2023c {
                         printBracket("NATIONAL LEAGUE", nlTeams2017, nlWinners2017, teamNames, seeds2017);
                         System.out.println("\n");
 
+                        // 2018 Playoff Data
+                        String[] alTeams2018 = {"BOS", "HOU", "CLE", "NYY", "OAK", "LAA"};
+                        String[] alWinners2018 = {"BOS", "HOU", "BOS", "BOS", "BOS", "BOS"};
+                        String[] nlTeams2018 = {"MIL", "LAD", "ATL", "CHC", "COL", "WSH"};
+                        String[] nlWinners2018 = {"MIL", "LAD", "LAD", "LAD", "LAD", "BOS"};
+
+                        // Validate and print 2018 bracket
+                        validateTeamsAndWinners(alTeams2018, alWinners2018, teamNames, seeds2018);
+                        validateTeamsAndWinners(nlTeams2018, nlWinners2018, teamNames, seeds2018);
+                        System.out.println("\n\n2018 MLB Playoff Bracket:\n\n");
+                        printBracket("AMERICAN LEAGUE", alTeams2018, alWinners2018, teamNames, seeds2018);
+                        System.out.println("                               ---- BOS " + teamNames.getOrDefault("BOS", "Unknown Team"));
+                        printBracket("NATIONAL LEAGUE", nlTeams2018, nlWinners2018, teamNames, seeds2018);
+                        System.out.println("\n");
 
                         // 2019 Playoff Data
                         String[] alTeams2019 = {"HOU", "NYY", "MIN", "OAK", "TB"};
@@ -204,6 +218,22 @@ public class MLBPlayoffBracket2023c {
                     seeds.put("CHC", 3);
                     seeds.put("ARI", 4);
                     seeds.put("COL", 5);
+                    return seeds;
+                }
+                private static Map<String, Integer> initializeSeeds2018() {
+                    Map<String, Integer> seeds = new HashMap<>();
+                    seeds.put("BOS", 1);
+                    seeds.put("HOU", 2);
+                    seeds.put("CLE", 3);
+                    seeds.put("NYY", 4);
+                    seeds.put("OAK", 5);
+                    seeds.put("LAA", 6);
+                    seeds.put("MIL", 1);
+                    seeds.put("LAD", 2);
+                    seeds.put("ATL", 3);
+                    seeds.put("CHC", 4);
+                    seeds.put("COL", 5);
+                    seeds.put("WSH", 6);
                     return seeds;
                 }
                 private static Map<String, Integer> initializeSeeds2019() {
