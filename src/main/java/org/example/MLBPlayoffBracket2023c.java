@@ -15,6 +15,7 @@ public class MLBPlayoffBracket2023c {
                         Map<String, Integer> seeds2017 = initializeSeeds2017();
                         Map<String, Integer> seeds2018 = initializeSeeds2018();
                         Map<String, Integer> seeds2019 = initializeSeeds2019();
+                        Map<String, Integer> seeds2020 = initializeSeeds2020();
                         Map<String, Integer> seeds2022 = initializeSeeds2022();
                         Map<String, Integer> seeds2023 = initializeSeeds2023();
 
@@ -102,6 +103,20 @@ public class MLBPlayoffBracket2023c {
                         System.out.println("\n");
 
 
+                        // 2020 Playoff Data
+                        String[] alTeams2020 = {"TB", "OAK", "MIN", "CLE", "NYY", "HOU", "CHW", "TOR"};
+                        String[] alWinners2020 = {"TB", "HOU", "NYY", "TB", "TB", "HOU", "TB", "TB"};
+                        String[] nlTeams2020 = {"LAD", "ATL", "CHC", "SD", "STL", "MIA", "CIN", "MIL"};
+                        String[] nlWinners2020 = {"LAD", "ATL", "MIA", "SD", "LAD", "ATL", "LAD", "LAD"};
+
+                        // Validate and print 2020 bracket
+                        validateTeamsAndWinners(alTeams2020, alWinners2020, teamNames, seeds2020);
+                        validateTeamsAndWinners(nlTeams2020, nlWinners2020, teamNames, seeds2020);
+                        System.out.println("\n\n2020 MLB Playoff Bracket:\n\n");
+                        printBracket("AMERICAN LEAGUE", alTeams2020, alWinners2020, teamNames, seeds2020);
+                        System.out.println("                               ---- TB " + teamNames.getOrDefault("TB", "Unknown Team"));
+                        printBracket("NATIONAL LEAGUE", nlTeams2020, nlWinners2020, teamNames, seeds2020);
+                        System.out.println("\n");
 
                         // 2022 Playoff Data
                         String[] alTeams2022 = {"HOU", "NYY", "CLE", "SEA", "TB", "TOR"};
@@ -173,6 +188,8 @@ public class MLBPlayoffBracket2023c {
                     teamNames.put("LAA", "洛杉磯天使");
                     teamNames.put("COL", "科羅拉多落磯");
                     teamNames.put("ARI", "亞利桑那響尾蛇");
+                    teamNames.put("CHW", "芝加哥白襪");
+                    teamNames.put("CIN", "辛辛那提紅人");
                     return teamNames;
                 }
 
@@ -245,6 +262,27 @@ public class MLBPlayoffBracket2023c {
                     seeds.put("STL", 3);
                     seeds.put("WSH", 4);
                     seeds.put("MIL", 5);
+                    return seeds;
+                }
+
+                private static Map<String, Integer> initializeSeeds2020() {
+                    Map<String, Integer> seeds = new HashMap<>();
+                    seeds.put("TB", 1);
+                    seeds.put("OAK", 2);
+                    seeds.put("MIN", 3);
+                    seeds.put("CLE", 4);
+                    seeds.put("NYY", 5);
+                    seeds.put("HOU", 6);
+                    seeds.put("CHW", 7);
+                    seeds.put("TOR", 8);
+                    seeds.put("LAD", 1);
+                    seeds.put("ATL", 2);
+                    seeds.put("CHC", 3);
+                    seeds.put("SD", 4);
+                    seeds.put("STL", 5);
+                    seeds.put("MIA", 6);
+                    seeds.put("CIN", 7);
+                    seeds.put("MIL", 8);
                     return seeds;
                 }
 
