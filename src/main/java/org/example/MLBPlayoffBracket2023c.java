@@ -11,6 +11,7 @@ public class MLBPlayoffBracket2023c {
                     try {
                         Map<String, String> teamNames = initializeTeamNames();
                         Map<String, Integer> seeds2015 = initializeSeeds2015();
+                        Map<String, Integer> seeds2016 = initializeSeeds2016();
                         Map<String, Integer> seeds2019 = initializeSeeds2019();
                         Map<String, Integer> seeds2022 = initializeSeeds2022();
                         Map<String, Integer> seeds2023 = initializeSeeds2023();
@@ -31,6 +32,24 @@ public class MLBPlayoffBracket2023c {
                         printBracket("AMERICAN LEAGUE", alTeams2015, alWinners2015, teamNames, seeds2015);
                         System.out.println(" ---- KC " + teamNames.getOrDefault("KC", "Unknown Team"));
                         printBracket("NATIONAL LEAGUE", nlTeams2015, nlWinners2015, teamNames, seeds2015);
+                        System.out.println("\n");
+
+
+
+                        // 2016 Playoff Data
+                        String[] alTeams2016 = {"TEX", "CLE", "BOS", "TOR", "BAL"};
+                        String[] alWinners2016 = {"TOR", "CLE", "CLE", "TOR", "CLE"};
+                        String[] nlTeams2016 = {"CHC", "WSH", "LAD", "SF", "NYM"};
+                        String[] nlWinners2016 = {"SF", "LAD", "CHC", "CHC", "CHC"};
+
+                        // Validate and print 2016 bracket
+                        validateTeamsAndWinners(alTeams2016, alWinners2016, teamNames, seeds2016);
+                        validateTeamsAndWinners(nlTeams2016, nlWinners2016, teamNames, seeds2016);
+
+                        System.out.println("\n\n2016 MLB Playoff Bracket:\n\n");
+                        printBracket("AMERICAN LEAGUE", alTeams2016, alWinners2016, teamNames, seeds2016);
+                        System.out.println(" ---- CHC " + teamNames.getOrDefault("CHC", "Unknown Team"));
+                        printBracket("NATIONAL LEAGUE", nlTeams2016, nlWinners2016, teamNames, seeds2016);
                         System.out.println("\n");
 
                         // 2019 Playoff Data
@@ -117,6 +136,8 @@ public class MLBPlayoffBracket2023c {
                     teamNames.put("CHC", "芝加哥小熊");
                     teamNames.put("PIT", "匹茲堡海盜");
                     teamNames.put("SF", "舊金山巨人");
+                    teamNames.put("CHC", "芝加哥小熊");
+                    teamNames.put("DET", "底特律老虎");
                     return teamNames;
                 }
 
@@ -134,7 +155,20 @@ public class MLBPlayoffBracket2023c {
                     seeds.put("PIT", 4);
                     return seeds;
                 }
-
+                private static Map<String, Integer> initializeSeeds2016() {
+                    Map<String, Integer> seeds = new HashMap<>();
+                    seeds.put("TEX", 1);
+                    seeds.put("CLE", 2);
+                    seeds.put("BOS", 3);
+                    seeds.put("TOR", 4);
+                    seeds.put("BAL", 5);
+                    seeds.put("CHC", 1);
+                    seeds.put("WSH", 2);
+                    seeds.put("LAD", 3);
+                    seeds.put("SF", 4);
+                    seeds.put("NYM", 5);
+                    return seeds;
+                }
                 private static Map<String, Integer> initializeSeeds2019() {
                     Map<String, Integer> seeds = new HashMap<>();
                     seeds.put("HOU", 1);
