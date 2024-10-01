@@ -107,15 +107,16 @@ public class MLBPlayoffBracket2023c {
                         String[] alTeams2020 = {"TB", "OAK", "MIN", "CLE", "NYY", "HOU", "CHW", "TOR"};
                         String[] alWinners2020 = {"TB", "HOU", "NYY", "TB", "TB", "HOU", "TB", "TB"};
                         String[] nlTeams2020 = {"LAD", "ATL", "CHC", "SD", "STL", "MIA", "CIN", "MIL"};
-                        String[] nlWinners2020 = {"LAD", "ATL", "MIA", "SD", "LAD", "ATL", "LAD", "LAD"};
+                        String[] nlWinners2020 = {"LAD", "ATL", "MIA", "LAD", "LAD", "ATL", "LAD", "LAD"};
 
                         // Validate and print 2020 bracket
                         validateTeamsAndWinners(alTeams2020, alWinners2020, teamNames, seeds2020);
                         validateTeamsAndWinners(nlTeams2020, nlWinners2020, teamNames, seeds2020);
+
                         System.out.println("\n\n2020 MLB Playoff Bracket:\n\n");
-                        printBracket("AMERICAN LEAGUE", alTeams2020, alWinners2020, teamNames, seeds2020);
-                        System.out.println("                               ---- TB " + teamNames.getOrDefault("TB", "Unknown Team"));
-                        printBracket("NATIONAL LEAGUE", nlTeams2020, nlWinners2020, teamNames, seeds2020);
+                        printBracket2020("AMERICAN LEAGUE", alTeams2020, alWinners2020, teamNames, seeds2020);
+                        System.out.println(" ---- LAD " + teamNames.getOrDefault("LAD", "Unknown Team"));
+                        printBracket2020("NATIONAL LEAGUE", nlTeams2020, nlWinners2020, teamNames, seeds2020);
                         System.out.println("\n");
 
                         // 2022 Playoff Data
@@ -265,6 +266,7 @@ public class MLBPlayoffBracket2023c {
                     return seeds;
                 }
 
+
                 private static Map<String, Integer> initializeSeeds2020() {
                     Map<String, Integer> seeds = new HashMap<>();
                     seeds.put("TB", 1);
@@ -351,6 +353,23 @@ public class MLBPlayoffBracket2023c {
             } else if (i == 4) {
                 System.out.printf("%-3s ----- %-3s -----\n", winners[1], winners[3]);
                 System.out.printf("        %-3s ----- %-3s ----- %-3s\n", teams[0], winners[3], winners[4]);
+            }
+        }
+    }
+    private static void printBracket2020(String league, String[] teams, String[] winners,
+                                         Map<String, String> teamNames, Map<String, Integer> seeds) {
+        System.out.println("(" + league + ")");
+        for (int i = 0; i < teams.length; i++) {
+            String team = teams[i];
+            System.out.printf("%-3s %d %s -----\n", team, seeds.get(team), teamNames.get(team));
+            if (i == 1) {
+                System.out.printf("%-3s ----- %-3s -----\n", winners[0], winners[3]);
+            } else if (i == 2) {
+                System.out.printf("        %-3s ----- %-3s\n", winners[1], winners[3]);
+            } else if (i == 3) {
+                System.out.printf("%-3s ----- %-3s -----\n", winners[2], winners[5]);
+            } else if (i == 5) {
+                System.out.printf("        %-3s ----- %-3s ----- %-3s\n", winners[0], winners[5], winners[7]);
             }
         }
     }
