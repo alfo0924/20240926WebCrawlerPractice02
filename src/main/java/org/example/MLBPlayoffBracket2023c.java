@@ -94,8 +94,6 @@ public class MLBPlayoffBracket2023c {
                     teamNames.put("WSH", "華盛頓國民");
                     return teamNames;
                 }
-
-
                 private static Map<String, Integer> initializeSeeds2019() {
                     Map<String, Integer> seeds = new HashMap<>();
                     seeds.put("HOU", 1);
