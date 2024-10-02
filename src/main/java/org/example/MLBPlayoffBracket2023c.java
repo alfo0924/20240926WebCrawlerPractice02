@@ -8,8 +8,10 @@ public class MLBPlayoffBracket2023c {
     private static final Logger LOGGER = Logger.getLogger(MLBPlayoffBracket2023b.class.getName());
 
                 public static void main(String[] args) {
+                    Map<String, String> teamNames = null;
+                    Map<String, Integer> seeds2024 = null;
                     try {
-                        Map<String, String> teamNames = initializeTeamNames();
+                        teamNames = initializeTeamNames();
                         Map<String, Integer> seeds2015 = initializeSeeds2015();
                         Map<String, Integer> seeds2016 = initializeSeeds2016();
                         Map<String, Integer> seeds2017 = initializeSeeds2017();
@@ -19,7 +21,7 @@ public class MLBPlayoffBracket2023c {
                         Map<String, Integer> seeds2021 = initializeSeeds2021();
                         Map<String, Integer> seeds2022 = initializeSeeds2022();
                         Map<String, Integer> seeds2023 = initializeSeeds2023();
-
+                        seeds2024 = initializeSeeds2024();
 
 
                         // 2015 Playoff Data
@@ -37,7 +39,6 @@ public class MLBPlayoffBracket2023c {
                         System.out.println(" ---- KC " + teamNames.getOrDefault("KC", "Unknown Team"));
                         printBracket("NATIONAL LEAGUE", nlTeams2015, nlWinners2015, teamNames, seeds2015);
                         System.out.println("\n");
-
 
 
                         // 2016 Playoff Data
@@ -121,7 +122,6 @@ public class MLBPlayoffBracket2023c {
                         System.out.println("\n");
 
 
-
                         // 2021 Playoff Data
                         String[] alTeams2021 = {"TB", "HOU", "CWS", "BOS", "NYY"};
                         String[] alWinners2021 = {"BOS", "HOU", "HOU", "BOS", "HOU"};
@@ -137,7 +137,6 @@ public class MLBPlayoffBracket2023c {
                         System.out.println(" ---- ATL " + teamNames.getOrDefault("ATL", "Unknown Team"));
                         printBracket("NATIONAL LEAGUE", nlTeams2021, nlWinners2021, teamNames, seeds2021);
                         System.out.println("\n");
-
 
 
                         // 2022 Playoff Data
@@ -162,7 +161,6 @@ public class MLBPlayoffBracket2023c {
                         String[] nlWinners2023 = {"AZ", "PHI", "PHI", "AZ", "AZ", "AZ"};
 
 
-
                         // Validate and print 2023 bracket
                         validateTeamsAndWinners(alTeams2023, alWinners2023, teamNames, seeds2023);
                         validateTeamsAndWinners(nlTeams2023, nlWinners2023, teamNames, seeds2023);
@@ -175,6 +173,22 @@ public class MLBPlayoffBracket2023c {
                     } catch (Exception e) {
                         LOGGER.log(Level.SEVERE, "Unexpected error occurred", e);
                     }
+
+                    // 2024 Playoff Data
+                    String[] alTeams2024 = {"NYY", "CLE", "HOU", "BAL", "KC", "DET"};
+                    String[] alWinners2024 = {"DET", "KC", "TBA", "TBA", "TBA", "TBA"};
+                    String[] nlTeams2024 = {"LAD", "PHI", "MIL", "SD", "ATL", "NYM"};
+                    String[] nlWinners2024 = {"NYM", "TBA", "TBA", "TBA", "TBA", "TBA"};
+
+                    // Validate and print 2024 bracket
+                    validateTeamsAndWinners(alTeams2024, alWinners2024, teamNames, seeds2024);
+                    validateTeamsAndWinners(nlTeams2024, nlWinners2024, teamNames, seeds2024);
+                    System.out.println("\n\n2024 MLB Playoff Bracket (Placeholder):\n\n");
+                    printBracket("AMERICAN LEAGUE", alTeams2024, alWinners2024, teamNames, seeds2024);
+                    System.out.println("                               ---- TBA 待定冠军");
+                    printBracket("NATIONAL LEAGUE", nlTeams2024, nlWinners2024, teamNames, seeds2024);
+                    System.out.println("\n");
+
                 }
 
 
@@ -213,6 +227,13 @@ public class MLBPlayoffBracket2023c {
                     teamNames.put("CHW", "芝加哥白襪");
                     teamNames.put("CIN", "辛辛那提紅人");
                     teamNames.put("CWS", "芝加哥白襪");
+                    teamNames.put("TBA", "待定");
+                    teamNames.put("TBA1", "待定1");
+                    teamNames.put("TBA2", "待定2");
+                    teamNames.put("TBA3", "待定3");
+                    teamNames.put("TBA4", "待定4");
+                    teamNames.put("TBA5", "待定5");
+                    teamNames.put("TBA6", "待定6");
                     return teamNames;
                 }
 
@@ -360,6 +381,22 @@ public class MLBPlayoffBracket2023c {
                     return seeds;
                 }
 
+                private static Map<String, Integer> initializeSeeds2024() {
+                    Map<String, Integer> seeds = new HashMap<>();
+                    seeds.put("NYY", 1);
+                    seeds.put("CLE", 2);
+                    seeds.put("HOU", 3);
+                    seeds.put("BAL", 4);
+                    seeds.put("KC", 5);
+                    seeds.put("DET", 6);
+                    seeds.put("LAD", 1);
+                    seeds.put("PHI", 2);
+                    seeds.put("MIL", 3);
+                    seeds.put("SD", 4);
+                    seeds.put("ATL", 5);
+                    seeds.put("NYM", 6);
+                    return seeds;
+                }
     private static void validateTeamsAndWinners(String[] teams, String[] winners,
                                                 Map<String, String> teamNames, Map<String, Integer> seeds) {
         Set<String> uniqueTeams = new HashSet<>(Arrays.asList(teams));
